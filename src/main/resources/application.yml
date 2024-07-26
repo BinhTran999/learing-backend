@@ -1,0 +1,19 @@
+server:
+  port: 8097
+
+spring:
+  application:
+    name: core-be
+  jackson:
+    default-property-inclusion: always
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user
+    password: 123456
+#    validation-query: select 1
+#    test-on-borrow: true
+
+
+

@@ -16,8 +16,8 @@ import static com.vn.dev.core_be.controller.Endpoints.PREFIX;
 @RequestMapping(PREFIX)
 public class DDNhanVienController {
 
-    @Autowired
-    private DDNhanVienRepository nvRepository;
+//    @Autowired
+//    private DDNhanVienRepository nvRepository;
 
     @GetMapping(value = PATH_VARIABLE_ID)
     public DDNhanVien findById(@PathVariable("uuid") UUID uuid){

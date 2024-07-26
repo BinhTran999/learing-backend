@@ -6,13 +6,16 @@ import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.mapper.DDNhanVienMapperImpl;
 import com.vn.dev.core_be.repository.DDNhanVienRepository;
 import io.swagger.models.Response;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 @Service
+@AllArgsConstructor
 public class DDNhanVienServiceImpl implements DDNhanVienService {
 
     @Autowired
@@ -47,11 +50,14 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
     }
 
     @Override
+    @Transactional
+//    @CacheEvict(allEntries = true)
     public Response create(DDNhanVienCreate dataCreate) {
         if (repository.findEntityByName(dataCreate.getName())){
             return null;
         }
-        DDNhanVien entity = DDNhanVienMapper.changeToEntity(dataCreate);
+        DDNhanVien entity = repository.save(DDNhanVienMapper.changeToEntity(dataCreate));
+        repository.save(entity);
         return null;
     }
 }

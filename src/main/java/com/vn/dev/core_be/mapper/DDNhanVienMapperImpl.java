@@ -6,6 +6,7 @@ import com.vn.dev.core_be.entity.DDNhanVien;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.UUID;
 @Component
 @Mapper (componentModel = "spring")
@@ -13,34 +14,26 @@ import java.util.UUID;
 public class DDNhanVienMapperImpl implements DDNhanVienMapper {
 
     public DDNhanVien changeToEntity(DDNhanVienCreate data) {
+        return getDdNhanVien(data.getName(), data.getGender(), data.getPhone(), data.getBirth(), data.getEmail(), data.getAddress(), data.getTeam(), data.isStatus());
+    }
+
+    private DDNhanVien getDdNhanVien(String name, int gender, String phone, Date birth, String email, String address, String team, boolean status) {
         DDNhanVien entity = new DDNhanVien();
         entity.setId(UUID.randomUUID());
-        entity.setName(data.getName());
-        entity.setGender(data.getGender());
-        entity.setPhone(data.getPhone());
-        entity.setBirth(data.getBirth());
-        entity.setEmail(data.getEmail());
-        entity.setAddress(data.getAddress());
-        entity.setTeam(data.getTeam());
-        entity.setStatus(data.isStatus());
-        entity.setOrder(data.getOrder());
+        entity.setName(name);
+        entity.setGender(gender);
+        entity.setPhone(phone);
+        entity.setBirth(birth);
+        entity.setEmail(email);
+        entity.setAddress(address);
+        entity.setTeam(team);
+        entity.setStatus(status);
         return entity;
     }
 
     @Override
     public DDNhanVien changeDataUpdateToEntity(DDNhanVienUpdate data) {
-        DDNhanVien entity = new DDNhanVien();
-        entity.setId(UUID.randomUUID());
-        entity.setName(data.getName());
-        entity.setGender(data.getGender());
-        entity.setPhone(data.getPhone());
-        entity.setBirth(data.getBirth());
-        entity.setEmail(data.getEmail());
-        entity.setAddress(data.getAddress());
-        entity.setTeam(data.getTeam());
-        entity.setStatus(data.isStatus());
-        entity.setOrder(data.getOrder());
-        return entity;
+        return getDdNhanVien(data.getName(), data.getGender(), data.getPhone(), data.getBirth(), data.getEmail(), data.getAddress(), data.getTeam(), data.isStatus());
     }
 
 

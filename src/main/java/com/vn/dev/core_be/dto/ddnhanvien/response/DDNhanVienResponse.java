@@ -16,8 +16,8 @@ public class DDNhanVienResponse extends DDBaseResponse {
 
     private DDNhanVien nv;
 
-    public DDNhanVienResponse(ExceptionCode exe, DDNhanVien entity){
-        super(exe);
+    public DDNhanVienResponse(String code, String message, DDNhanVien entity){
+        super(code, message);
         this.nv = entity;
     }
 

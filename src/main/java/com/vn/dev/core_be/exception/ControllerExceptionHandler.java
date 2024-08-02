@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    @ExceptionHandler(IllegalAccessException.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public Api
+//    @ExceptionHandler(IllegalAccessException.class)
+//    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+//    public Api
 }

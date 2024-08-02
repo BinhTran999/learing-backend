@@ -3,15 +3,13 @@ package com.vn.dev.core_be.service.DDNhanVien;
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienCreate;
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienUpdate;
-import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
+import com.vn.dev.core_be.dto.ddnhanvien.response.DDObjectBaseResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.exception.ExceptionCode;
-import com.vn.dev.core_be.mapper.DDNhanVienMapper;
 import com.vn.dev.core_be.mapper.DDNhanVienMapperImpl;
 import com.vn.dev.core_be.repository.DDNhanVienRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,9 +45,9 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
     }
 
     @Override
-    public DDNhanVienResponse update(UUID id, DDNhanVienUpdate dataUpdate) {
+    public DDObjectBaseResponse update(UUID id, DDNhanVienUpdate dataUpdate) {
         if (!repository.getExistsEntityById(id)){
-            return new DDNhanVienResponse(ExceptionCode.USER_EXISTED, null);
+            return new DDObjectBaseResponse(ExceptionCode.USER_EXISTED, null);
         }
         DDNhanVien entity = DDNhanVienMapper.changeDataUpdateToEntity(dataUpdate);
         entity.setId(id);
@@ -64,11 +62,11 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
     @Override
     @Transactional
 //    @CacheEvict(allEntries = true)
-    public DDNhanVienResponse create(DDNhanVienCreate dataCreate) {
+    public DDObjectBaseResponse create(DDNhanVienCreate dataCreate) {
         if (repository.findEntityByName(dataCreate.getName()) == null){
-            return new DDNhanVienResponse(ExceptionCode.USER_EXISTED, null);
+            return new DDObjectBaseResponse(ExceptionCode.USER_EXISTED, null);
         }
         DDNhanVien entity = repository.save(DDNhanVienMapper.changeToEntity(dataCreate));
-        return new DDNhanVienResponse(ExceptionCode.SUCCESS, repository.save(entity));
+        return new DDObjectBaseResponse(ExceptionCode.SUCCESS, repository.save(entity));
     }
 }

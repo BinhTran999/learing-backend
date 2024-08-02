@@ -1,17 +1,13 @@
 package com.vn.dev.core_be.controller;
 
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
-import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
+import com.vn.dev.core_be.dto.ddnhanvien.response.DDObjectBaseResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
-import com.vn.dev.core_be.repository.DDNhanVienRepository;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -47,7 +43,7 @@ public class DDNhanVienController {
     }
 
     @PutMapping(value = UPDATE_PATH)
-    public DDNhanVienResponse update(@PathVariable("uuid") UUID uuid){
+    public DDObjectBaseResponse update(@PathVariable("uuid") UUID uuid){
         return null;
     }
 

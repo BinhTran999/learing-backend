@@ -1,15 +1,20 @@
 package com.vn.dev.core_be.dto.ddnhanvien.response;
 
-public class ApiResponseBuild {
-    public ApiBaseObjectResponse<T> successObject(T t){
-        return new ApiBaseObjectResponse<>(SUCCESS.getCode(),SUCCESS.getDetail(),t);
+import com.vn.dev.core_be.dto.ddnhanvien.BaseDto;
+import com.vn.dev.core_be.dto.ddnhanvien.BasePage;
+
+import static com.vn.dev.core_be.exception.ExceptionCode.SUCCESS;
+
+public class ApiResponseBuild<T extends BaseDto> {
+    public DDObjectBaseResponse<T> successObject(T t){
+        return new DDObjectBaseResponse(SUCCESS.getCode(),SUCCESS.getDetail(),t);
     }
 
-    public ApiBaseResponse success() {
-        return new ApiBaseResponse(SUCCESS.getCode(),SUCCESS.getDetail());
+    public DDBaseResponse success() {
+        return new DDBaseResponse(SUCCESS.getCode(),SUCCESS.getDetail());
     }
 
-    public ApiBaseObjectResponse<BasePage<T>> successObject(BasePage<T> t) {
-        return new ApiBaseObjectResponse<>(SUCCESS.getCode(), SUCCESS.getDetail(), t);
+    public DDObjectBaseResponse<BasePage<T>> successObject(BasePage<T> t) {
+        return new DDObjectBaseResponse(SUCCESS.getCode(), SUCCESS.getDetail(), t);
     }
 }

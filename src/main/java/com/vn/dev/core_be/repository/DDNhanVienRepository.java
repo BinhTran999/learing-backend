@@ -15,6 +15,8 @@ public interface DDNhanVienRepository extends JpaRepository<DDNhanVien, UUID>, J
     @Query()
     DDNhanVien getEntityById(UUID id);
 
+    Boolean getExistsEntityById(UUID id);
+
     @Query()
     DDNhanVien findEntityByName(String name);
 

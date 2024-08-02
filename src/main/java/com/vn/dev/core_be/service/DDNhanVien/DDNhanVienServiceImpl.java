@@ -2,6 +2,7 @@ package com.vn.dev.core_be.service.DDNhanVien;
 
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienCreate;
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
+import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienUpdate;
 import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.exception.ExceptionCode;
@@ -45,8 +46,11 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
     }
 
     @Override
-    public void update(UUID id, DDNhanVien dataUpdate) {
-
+    public DDNhanVienResponse update(UUID id, DDNhanVienUpdate dataUpdate) {
+        if (!repository.getExistsEntityById(id)){
+            return new DDNhanVienResponse(ExceptionCode.USER_EXISTED, null);
+        }
+        return null;
     }
 
     @Override
@@ -59,7 +63,7 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
 //    @CacheEvict(allEntries = true)
     public DDNhanVienResponse create(DDNhanVienCreate dataCreate) {
         if (repository.findEntityByName(dataCreate.getName()) == null){
-            return new DDNhanVienResponse(ExceptionCode.USER_EXISTED, new DDNhanVien());
+            return new DDNhanVienResponse(ExceptionCode.USER_EXISTED, null);
         }
         DDNhanVien entity = repository.save(DDNhanVienMapper.changeToEntity(dataCreate));
         return new DDNhanVienResponse(ExceptionCode.SUCCESS, repository.save(entity));

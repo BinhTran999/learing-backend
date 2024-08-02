@@ -2,6 +2,7 @@ package com.vn.dev.core_be.service.DDNhanVien;
 
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienCreate;
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
+import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienUpdate;
 import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.exception.ExceptionCode;
@@ -19,7 +20,7 @@ public interface DDNhanVienService {
 
     Page<DDNhanVien> search(DDNhanVienSearchEntity searchData);
 
-    void update(UUID id, DDNhanVien dataUpdate);
+    DDNhanVienResponse update(UUID id, DDNhanVienUpdate dataUpdate);
 
     void delete(UUID id);
 

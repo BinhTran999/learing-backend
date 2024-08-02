@@ -3,6 +3,7 @@ package com.vn.dev.core_be.dto.ddnhanvien.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.vn.dev.core_be.entity.DDNhanVien;
+import com.vn.dev.core_be.exception.ExceptionCode;
 import lombok.*;
 
 @Getter
@@ -15,8 +16,8 @@ public class DDNhanVienResponse extends DDBaseResponse {
 
     private DDNhanVien nv;
 
-    public DDNhanVienResponse(String code, String message, DDNhanVien entity){
-        super(code, message);
+    public DDNhanVienResponse(ExceptionCode exe, DDNhanVien entity){
+        super(exe);
         this.nv = entity;
     }
 

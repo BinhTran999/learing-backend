@@ -1,19 +1,18 @@
 package com.vn.dev.core_be.dto.ddnhanvien.request;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import java.util.Date;
+import java.util.UUID;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class DDNhanVienCreate {
+public class DDNhanVienEdit {
+
+
     private String name;
+
+    private String code;
 
     private int gender;
 

@@ -2,8 +2,9 @@ package com.vn.dev.core_be.service.DDNhanVien;
 
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienCreate;
 import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
+import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
-import io.swagger.models.Response;
+import com.vn.dev.core_be.exception.ExceptionCode;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,7 @@ public interface DDNhanVienService {
 
     void delete(UUID id);
 
-    Response create(DDNhanVienCreate dataCreate);
+    DDNhanVienResponse create(DDNhanVienCreate dataCreate);
 
 
 }

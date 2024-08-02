@@ -1,15 +1,22 @@
 package com.vn.dev.core_be.controller;
 
+import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
+import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.repository.DDNhanVienRepository;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-import static com.vn.dev.core_be.controller.Endpoints.PATH_VARIABLE_ID;
-import static com.vn.dev.core_be.controller.Endpoints.PREFIX;
+import static com.vn.dev.core_be.controller.Endpoints.*;
 
 @RestController
 @ResponseBody
@@ -19,10 +26,40 @@ public class DDNhanVienController {
 //    @Autowired
 //    private DDNhanVienRepository nvRepository;
 
-    @GetMapping(value = PATH_VARIABLE_ID)
-    public DDNhanVien findById(@PathVariable("uuid") UUID uuid){
+    @GetMapping(value = DETAIL_PATH)
+    public DDNhanVien getDetail(@PathVariable("uuid") UUID uuid){
         return null;
     }
+
+    @PostMapping
+    public Page<DDNhanVien> search(DDNhanVienSearchEntity searchData){
+        return null;
+    }
+
+    @GetMapping(value = GET_ALL_PATH)
+    public ResponseEntity<Page<DDNhanVien>> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "15") int size,
+            @RequestParam(defaultValue = "name") String sort
+    ){
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
+        return null;
+    }
+
+    @PutMapping(value = UPDATE_PATH)
+    public DDNhanVienResponse update(@PathVariable("uuid") UUID uuid){
+        return null;
+    }
+
+    @DeleteMapping(value = DELETE_PATH)
+    public void delete(@PathVariable("uuid") UUID uuid){
+        return;
+    }
+
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.vn.dev.core_be.dto.ddnhanvien.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.vn.dev.core_be.exception.ExceptionCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,5 @@ import lombok.With;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DDBaseResponse {
-    protected String code;
-    protected String message;
+    protected ExceptionCode exe;
 }

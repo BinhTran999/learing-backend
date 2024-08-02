@@ -10,4 +10,6 @@ public interface Endpoints {
     String UPDATE_PATH = PATH_VARIABLE_ID;
     String DELETE_PATH = PATH_VARIABLE_ID;
     String DETAIL_PATH = PATH_VARIABLE_ID;
+
+
 }

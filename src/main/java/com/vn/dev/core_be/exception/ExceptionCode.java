@@ -10,6 +10,7 @@ public enum ExceptionCode {
     INVALID_PARAMETER("MS-001", "Invalid parameter"),
     NOT_FOUND("MS-002", "Entity Not Found"),
     EXTERNAL_SERVICE_SERVER_ERROR("MS-003", "External service error"),
+    USER_EXISTED("MS-011", "Entity existed"),
     TOKEN_EXPIRED("MS-004", "Token expired"),
     FORBIDDEN("MS-005", "Forbidden"),
     UNAUTHORIZED("MS-006", "UNAUTHORIZED"),

@@ -25,4 +25,6 @@ public class DDNhanVienMapperImpl implements DDNhanVienMapper {
         entity.setOrder(data.getOrder());
         return entity;
     }
+
+
 }

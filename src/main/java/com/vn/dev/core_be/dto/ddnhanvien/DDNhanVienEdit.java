@@ -1,11 +1,6 @@
-package com.vn.dev.core_be.dto.ddnhanvien.request;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+package com.vn.dev.core_be.dto.ddnhanvien;
 
 import java.util.Date;
-import java.util.UUID;
 
 public class DDNhanVienEdit {
 

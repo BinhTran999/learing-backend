@@ -1,4 +1,4 @@
-package com.vn.dev.core_be.dto.ddnhanvien.request;
+package com.vn.dev.core_be.dto.ddnhanvien;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +27,4 @@ public class DDNhanVienUpdate {
     private String team;
 
     private boolean status;
-
-    private int order;
 }

@@ -1,4 +1,4 @@
-package com.vn.dev.core_be.dto.ddnhanvien.response;
+package com.vn.dev.core_be.dto.base.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.vn.dev.core_be.mapper;
 
-import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienCreate;
-import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienUpdate;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienCreate;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienUpdate;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;

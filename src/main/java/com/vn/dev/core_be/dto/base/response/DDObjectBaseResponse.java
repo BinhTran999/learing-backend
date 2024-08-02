@@ -1,8 +1,8 @@
-package com.vn.dev.core_be.dto.ddnhanvien.response;
+package com.vn.dev.core_be.dto.base.response;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.vn.dev.core_be.dto.ddnhanvien.BaseDto;
+import com.vn.dev.core_be.dto.base.BaseDto;
 import lombok.*;
 
 @Getter

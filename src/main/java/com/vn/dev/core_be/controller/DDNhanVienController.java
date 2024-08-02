@@ -1,7 +1,7 @@
 package com.vn.dev.core_be.controller;
 
-import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
-import com.vn.dev.core_be.dto.ddnhanvien.response.DDObjectBaseResponse;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienSearchEntity;
+import com.vn.dev.core_be.dto.base.response.DDObjectBaseResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

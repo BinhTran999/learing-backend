@@ -1,9 +1,7 @@
-package com.vn.dev.core_be.dto.ddnhanvien;
+package com.vn.dev.core_be.dto.base;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.vn.dev.core_be.entity.DDNhanVien;
 import lombok.*;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 

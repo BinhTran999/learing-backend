@@ -1,9 +1,9 @@
 package com.vn.dev.core_be.service.DDNhanVien;
 
-import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienCreate;
-import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienSearchEntity;
-import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienUpdate;
-import com.vn.dev.core_be.dto.ddnhanvien.response.DDObjectBaseResponse;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienCreate;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienSearchEntity;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienUpdate;
+import com.vn.dev.core_be.dto.base.response.DDObjectBaseResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.exception.ExceptionCode;
 import com.vn.dev.core_be.mapper.DDNhanVienMapperImpl;
@@ -46,11 +46,11 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
 
     @Override
     public DDObjectBaseResponse update(UUID id, DDNhanVienUpdate dataUpdate) {
-        if (!repository.getExistsEntityById(id)){
-            return new DDObjectBaseResponse(ExceptionCode.USER_EXISTED, null);
-        }
-        DDNhanVien entity = DDNhanVienMapper.changeDataUpdateToEntity(dataUpdate);
-        entity.setId(id);
+//        if (!repository.getExistsEntityById(id)){
+//            return new DDObjectBaseResponse(ExceptionCode.USER_EXISTED, null);
+//        }
+//        DDNhanVien entity = DDNhanVienMapper.changeDataUpdateToEntity(dataUpdate);
+//        entity.setId(id);
         return null;
     }
 
@@ -63,10 +63,11 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
     @Transactional
 //    @CacheEvict(allEntries = true)
     public DDObjectBaseResponse create(DDNhanVienCreate dataCreate) {
-        if (repository.findEntityByName(dataCreate.getName()) == null){
-            return new DDObjectBaseResponse(ExceptionCode.USER_EXISTED, null);
-        }
-        DDNhanVien entity = repository.save(DDNhanVienMapper.changeToEntity(dataCreate));
-        return new DDObjectBaseResponse(ExceptionCode.SUCCESS, repository.save(entity));
+//        if (repository.findEntityByName(dataCreate.getName()) == null){
+//            return new DDObjectBaseResponse(ExceptionCode.USER_EXISTED, null);
+//        }
+//        DDNhanVien entity = repository.save(DDNhanVienMapper.changeToEntity(dataCreate));
+//        return new DDObjectBaseResponse(ExceptionCode.SUCCESS, repository.save(entity));
+        return null;
     }
 }

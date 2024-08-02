@@ -40,7 +40,7 @@ public class DDNhanVienMapperImpl implements DDNhanVienMapper {
         entity.setTeam(data.getTeam());
         entity.setStatus(data.isStatus());
         entity.setOrder(data.getOrder());
-        return entity
+        return entity;
     }
 
 

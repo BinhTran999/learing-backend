@@ -6,6 +6,7 @@ import com.vn.dev.core_be.dto.ddnhanvien.request.DDNhanVienUpdate;
 import com.vn.dev.core_be.dto.ddnhanvien.response.DDNhanVienResponse;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.exception.ExceptionCode;
+import com.vn.dev.core_be.mapper.DDNhanVienMapper;
 import com.vn.dev.core_be.mapper.DDNhanVienMapperImpl;
 import com.vn.dev.core_be.repository.DDNhanVienRepository;
 import lombok.AllArgsConstructor;
@@ -50,6 +51,8 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
         if (!repository.getExistsEntityById(id)){
             return new DDNhanVienResponse(ExceptionCode.USER_EXISTED, null);
         }
+        DDNhanVien entity = DDNhanVienMapper.changeDataUpdateToEntity(dataUpdate);
+        entity.setId(id);
         return null;
     }
 

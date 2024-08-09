@@ -1,10 +1,12 @@
 package com.vn.dev.core_be.entity;
 
+import com.vn.dev.core_be.enums.Gender;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.ws.soap.saaj.SaajAttachmentException;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -16,43 +18,35 @@ import java.util.Date;
 
 public class DDNhanVien extends BaseEntity {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
     @Column(name = "name")
     private String name;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "code")
     private String code;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "gender")
-    private int gender;
+    private String gender;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
     @Column(name = "phone")
     private String phone;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "birth")
     private Date birth;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "email")
     private String email;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "address")
     private String address;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "team")
     private String team;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "status")
     private boolean status;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order")
     private int order;
 }

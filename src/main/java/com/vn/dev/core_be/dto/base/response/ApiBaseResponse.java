@@ -11,7 +11,7 @@ import lombok.With;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DDBaseResponse {
+public class ApiBaseResponse {
     protected String code;
     protected String message;
 }

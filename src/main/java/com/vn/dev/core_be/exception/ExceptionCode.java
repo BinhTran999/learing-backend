@@ -16,7 +16,6 @@ public enum ExceptionCode {
     UNAUTHORIZED("MS-006", "UNAUTHORIZED"),
     ERR_MAX_UPLOAD_SIZE("MS-007", "Max upload size file invalid"), CODE_EXISTED("MS-008", "Code existed"),
     EMAIL_INVALID("MS-009", "Email invalid"), PASSWORD_INVALID("MS-010", "Password invalid");
-
     private final String code;
     private final String detail;
 }

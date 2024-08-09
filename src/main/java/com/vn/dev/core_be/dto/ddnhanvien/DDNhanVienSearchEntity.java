@@ -1,5 +1,6 @@
 package com.vn.dev.core_be.dto.ddnhanvien;
 
+import com.vn.dev.core_be.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class DDNhanVienSearchEntity {
     private String team;
 
     private String phone;
-    private int gender;
+    private Gender gender;
 
     private Date birdDateFrom;
 

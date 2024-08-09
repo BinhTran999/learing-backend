@@ -1,6 +1,8 @@
 package com.vn.dev.core_be.dto.ddnhanvien;
 
 
+import com.vn.dev.core_be.dto.base.BaseDto;
+import com.vn.dev.core_be.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,10 +14,10 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DDNhanVienCreate {
+public class DDNhanVienCreate extends BaseDto {
     private String name;
 
-    private int gender;
+    private String gender;
 
     private String phone;
 

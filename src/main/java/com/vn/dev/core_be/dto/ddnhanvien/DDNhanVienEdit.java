@@ -1,5 +1,7 @@
 package com.vn.dev.core_be.dto.ddnhanvien;
 
+import com.vn.dev.core_be.enums.Gender;
+
 import java.util.Date;
 
 public class DDNhanVienEdit {
@@ -9,7 +11,7 @@ public class DDNhanVienEdit {
 
     private String code;
 
-    private int gender;
+    private String gender;
 
     private String phone;
 

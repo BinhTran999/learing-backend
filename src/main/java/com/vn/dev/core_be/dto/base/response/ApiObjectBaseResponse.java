@@ -11,11 +11,11 @@ import lombok.*;
 @AllArgsConstructor
 @With
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DDObjectBaseResponse<T extends BaseDto> extends DDBaseResponse {
+public class ApiObjectBaseResponse<T> extends ApiBaseResponse {
 
     private T a;
 
-    public DDObjectBaseResponse(String code, String message, T t){
+    public ApiObjectBaseResponse(String code, String message, T t){
         super(code, message);
         this.a = t;
     }

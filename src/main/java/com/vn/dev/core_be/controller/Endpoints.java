@@ -2,7 +2,7 @@ package com.vn.dev.core_be.controller;
 
 public interface Endpoints {
 
-    String PREFIX = "api/base-nv";
+    String PREFIX = "/api/base-nv";
     String PATH_VARIABLE_ID = "/{uuid}";
 
     String GET_ALL_PATH = "/get-all";

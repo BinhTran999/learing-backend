@@ -13,18 +13,18 @@ services:
     ports:
       - '6379'
 
-  db:
-    image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=postgres'
-      - 'POSTGRES_PASSWORD=123456'
-      - 'POSTGRES_USER=user'
-    ports:
-      - '5432'
-    volumes:
-      - my-postgres-data:/var/lib/postgresql/data
+#  db:
+#    image: 'postgres:latest'
+#    environment:
+#      - 'POSTGRES_DB=postgres'
+#      - 'POSTGRES_PASSWORD=123456'
+#      - 'POSTGRES_USER=user'
+#    ports:
+#      - '5432'
+#    volumes:
+#      - my-postgres-data:/var/lib/postgresql/data
 
-volumes:
-  my-postgres-data:
-    external: false
-    name: 078b3f16e9ef333c63d039e5f884d4c495db71b74d2933061f95928ce5959c6f
+#volumes:
+#  my-postgres-data:
+#    external: false
+#    name: 078b3f16e9ef333c63d039e5f884d4c495db71b74d2933061f95928ce5959c6f

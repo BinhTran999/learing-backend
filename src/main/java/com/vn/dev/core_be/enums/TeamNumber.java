@@ -1,6 +1,9 @@
 package com.vn.dev.core_be.enums;
 
+import lombok.Getter;
+
 // Enum Singleton
+@Getter
 public enum TeamNumber implements  TeamNumberInfo {
 
     SO ("System Operation (SO)"),

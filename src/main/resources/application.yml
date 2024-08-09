@@ -12,11 +12,15 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: user
     password: 123456
-#    validation-query: select 1
+    validation-query: select 1
 #    test-on-borrow: true
   jpa:
     hibernate:
       ddl-auto: none
+
+
+
+
 
 
 

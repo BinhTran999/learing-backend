@@ -11,10 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BasePage<T extends BaseDto> extends BaseDto {
-    protected  Integer page;
-    protected Integer totalPage;
-
+public class BasePage<T> extends BaseDto {
+    protected Integer page;
+    protected Integer size;
     protected Long totalRecord;
     protected List<T> data;
 }

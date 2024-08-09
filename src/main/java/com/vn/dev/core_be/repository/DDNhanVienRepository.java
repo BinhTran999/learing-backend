@@ -15,6 +15,7 @@ public interface DDNhanVienRepository extends JpaRepository<DDNhanVien, UUID>, J
 
     DDNhanVien getEntityById(UUID id);
 
+    @Query(value = "SELECT IS_ACTIVE FROM dd_nhanvien WHERE id = ?1", nativeQuery = true)
     Boolean getExistsEntityById(UUID id);
 
     @Query(value = "SELECT * FROM dd_nhanvien d WHERE d.NAME = name", nativeQuery = true)

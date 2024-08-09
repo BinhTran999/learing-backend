@@ -38,6 +38,7 @@ public class DDNhanVienServiceImpl implements DDNhanVienService {
         if (!repository.getExistsEntityById(id)){
             throw new NotFoundException("Mã nhân viên" + id + " chưa tồn tại");
         }
+        System.out.println(repository.getEntityById(id));
         return new ApiObjectBaseResponse<>(ExceptionCode.SUCCESS.getCode(), ExceptionCode.SUCCESS.getDetail(), repository.getEntityById(id));
     }
 

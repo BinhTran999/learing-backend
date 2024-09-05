@@ -1,12 +1,18 @@
 package com.vn.dev.core_be.controller;
 
 import com.vn.dev.core_be.dto.base.BasePage;
+import com.vn.dev.core_be.dto.base.request.ApiDeleteRequest;
+import com.vn.dev.core_be.dto.base.request.ApiRequest;
+import com.vn.dev.core_be.dto.base.request.ApiSearchRequest;
+import com.vn.dev.core_be.dto.base.request.PagingRequest;
 import com.vn.dev.core_be.dto.base.response.ApiBaseResponse;
 import com.vn.dev.core_be.dto.base.response.ApiResponseBuild;
 import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienCreate;
+import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienResponse;
 import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienSearchEntity;
 import com.vn.dev.core_be.dto.base.response.ApiObjectBaseResponse;
 import com.vn.dev.core_be.dto.ddnhanvien.DDNhanVienUpdate;
+import com.vn.dev.core_be.entity.BaseEntity;
 import com.vn.dev.core_be.entity.DDNhanVien;
 import com.vn.dev.core_be.service.DDNhanVien.DDNhanVienServiceImpl;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,6 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.util.UUID;
 
 import static com.vn.dev.core_be.controller.Endpoints.*;
@@ -44,34 +51,41 @@ public class DDNhanVienController {
     @Autowired
     private DDNhanVienServiceImpl DDNhanVienService;
 
+
     @GetMapping(value = DETAIL_PATH)
-    public ApiObjectBaseResponse<DDNhanVien> getDetail(@PathVariable("uuid") UUID uuid){
-        System.out.println(uuid);
-        return DDNhanVienService.getNhanVienByID(uuid);
+    public ApiObjectBaseResponse<ApiObjectBaseResponse<DDNhanVienResponse>> getDetail(ApiSearchRequest<UUID> data){
+        return new ApiObjectBaseResponse<>(DDNhanVienService.getNhanVienByID(data.getSearchData()));
     }
 
-    @PostMapping
-    public BasePage<DDNhanVien> search(DDNhanVienSearchEntity searchData){
-        return DDNhanVienService.search(searchData);
+    @CrossOrigin
+    @PostMapping(value = SEARCH_PATH)
+    public ApiObjectBaseResponse<BasePage<DDNhanVienResponse>> search(@RequestBody ApiSearchRequest<DDNhanVienSearchEntity> searchData){
+        System.out.println(searchData.getSearchData().getBirdDateFrom());
+        return new ApiObjectBaseResponse<>(DDNhanVienService.search(searchData.getSearchData()));
     }
 
-    @GetMapping(value = GET_ALL_PATH)
-    public ApiObjectBaseResponse<BasePage<DDNhanVien>> getAll(){
-        return new ApiObjectBaseResponse<>(DDNhanVienService.getAll());
+    @CrossOrigin
+    @PostMapping(value = GET_ALL_PATH_PAGE)
+    public ApiObjectBaseResponse<BasePage<DDNhanVienResponse>> getAll(@RequestBody PagingRequest<DDNhanVienSearchEntity> page){
+        return new ApiObjectBaseResponse<>(DDNhanVienService.getAllPage(page.getReqPage().getPage()));
     }
 
     @PutMapping(value = UPDATE_PATH)
-    public ApiObjectBaseResponse<DDNhanVien> update(@PathVariable("uuid") UUID uuid, DDNhanVienUpdate data){
-        return DDNhanVienService.update(uuid, data);
+    @CrossOrigin
+    public ApiObjectBaseResponse<ApiObjectBaseResponse<DDNhanVien>> update(@RequestBody ApiRequest<DDNhanVienUpdate> data){
+        return new ApiObjectBaseResponse<>( DDNhanVienService.update(data.getData()));
     }
 
     @DeleteMapping(value = DELETE_PATH)
-    public ApiBaseResponse delete(@PathVariable("uuid") UUID uuid){
-        return DDNhanVienService.delete(uuid);
+    @CrossOrigin
+    public ApiBaseResponse delete(@RequestBody ApiDeleteRequest<BaseEntity> delData){
+        return DDNhanVienService.delete(delData.getDelData().getId());
     }
 
-    @GetMapping(value = CREATE_PATH)
-    public ApiObjectBaseResponse<DDNhanVien> create(DDNhanVienCreate data){
-        return DDNhanVienService.create(data);
+    @PostMapping(value = CREATE_PATH)
+    @CrossOrigin
+    public ApiObjectBaseResponse<ApiObjectBaseResponse<DDNhanVien>> create(@RequestBody ApiRequest<DDNhanVienCreate> data){
+        System.out.print(data.getData().toString());
+        return new ApiObjectBaseResponse<>(DDNhanVienService.create(data.getData()));
     }
 }

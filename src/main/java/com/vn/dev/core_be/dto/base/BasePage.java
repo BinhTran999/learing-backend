@@ -16,4 +16,5 @@ public class BasePage<T> extends BaseDto {
     protected Integer size;
     protected Long totalRecord;
     protected List<T> data;
+    protected int totalPage;
 }

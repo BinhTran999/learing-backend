@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiListBaseRequest extends ApiBaseRequest {
-    protected String orderBy = "order";
+    protected String orderBy = "code";
     protected TypeSort orderDirection = TypeSort.ASC;
     protected int page = 0;
     protected int size = 15;

@@ -13,11 +13,14 @@ import lombok.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiObjectBaseResponse<T> extends ApiBaseResponse {
 
-    private T a;
+    private T content;
 
     public ApiObjectBaseResponse(String code, String message, T t){
         super(code, message);
-        this.a = t;
+        this.content = t;
     }
 
+    public ApiObjectBaseResponse(String code, String detail) {
+        super(code, detail);
+    }
 }

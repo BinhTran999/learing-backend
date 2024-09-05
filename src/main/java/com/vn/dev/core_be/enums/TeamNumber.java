@@ -18,6 +18,5 @@ public enum TeamNumber implements  TeamNumberInfo {
     @Override
     public String getTeamName(String k){
         return TeamNumber.valueOf(k).keyword;
-
     }
 }

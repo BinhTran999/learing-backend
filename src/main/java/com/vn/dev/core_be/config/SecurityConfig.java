@@ -23,11 +23,6 @@ public class SecurityConfig {
 //                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry.requestMatchers("/api/base-nv/").authenticated())
                 .httpBasic(Customizer.withDefaults()).sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(new ApiKeysAuthFilter(), UsernamePasswordAuthenticationFilter.class).build();
-//        http.csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry.requestMatchers("/**").authenticated())
-//                .httpBasic(Customizer.withDefaults())
-//                .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-//        return http.build();
+
     }
 }

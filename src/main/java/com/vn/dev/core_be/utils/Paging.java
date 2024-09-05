@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @UtilityClass
 public class Paging {
-    public static PageRequest buildPageRequest(ApiListBaseRequest request) {
-        // Integer page, Integer pageSize, String field,
-        //                                               TypeSort type
+    public static PageRequest buildPageRequest(ApiListBaseRequest request, int page) {
+        request.setPage(page);
         if (TypeSort.DESC.equals(request.getOrderDirection())) {
             return PageRequest.of(request.getPage(), request.getSize(), Sort.by(request.getOrderBy()).descending());
         }

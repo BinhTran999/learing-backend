@@ -5,11 +5,16 @@ public interface Endpoints {
     String PREFIX = "/api/base-nv";
     String PATH_VARIABLE_ID = "/{uuid}";
 
-    String GET_ALL_PATH = "/get-all";
+    String PATH_VARIABLE_CODE = "/{uuid}";
+
+    String GET_ALL_PATH_PAGE = "/get-all";
     String CREATE_PATH = "/";
-    String UPDATE_PATH = PATH_VARIABLE_ID;
-    String DELETE_PATH = PATH_VARIABLE_ID;
-    String DETAIL_PATH = PATH_VARIABLE_ID;
+    String SEARCH_PATH = "/search";
+    String UPDATE_PATH = "/";
+    String DELETE_PATH_BY_ID = PATH_VARIABLE_ID;
+    String DELETE_PATH = "/";
+    String DETAIL_PATH = "/";
+
 
 
 }
